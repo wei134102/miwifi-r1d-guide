@@ -50,5 +50,16 @@ https://userdocs.github.io/qbittorrent-nox-static/#/install-qbittorrent
 
 https://github.com/monlor/MIXBOX-ARCHIVE
 
+3.QB自启动
+1)putty miwifi
+2)vim /etc/rc.local
+exit 0 之前添加一下代码
 
+=========================
+sleep 30
+nohup /root/bin/qbittorrent-nox -d
+
+==================================
+
+退出保存。重启实验。
 
