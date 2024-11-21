@@ -31,8 +31,23 @@ drwxr-xr-x   12 root     root          1024 Jan 15 15:04 www
 
 
 其中有两条软连接，因为本身opt,root 所在分区太小了，不满足安装插件需求
-  opt 做的软连接 opt -> /userdisk/opt  用来安装  mixbox插件库 以及entware软件
-  root 做的软连接 root -> /userdisk/root  用来安装qbittorrent 本人不喜欢transmission
+  opt 做的软连接 opt -> /userdisk/data/opt  用来安装  mixbox插件库 以及entware软件
+  root 做的软连接 root -> /userdisk/data/root  用来安装qbittorrent 本人不喜欢transmission
+
+mount -o remount rw /
+
+mv opt opt1
+mv root root1
+
+ln -sn /userdisk/data/opt/ /
+
+ln -sn /userdisk/data/root/ /
+
+在把原来OPT1下面的文件复制到OPT里面
+
+
+mount -o remount ro /
+
 
 =======================================================================================
 
@@ -57,7 +72,7 @@ exit 0 之前添加一下代码
 
 =========================
 sleep 30
-nohup /root/bin/qbittorrent-nox -d
+nohup /root/bin/qbittorrent-nox -d &
 
 ==================================
 
